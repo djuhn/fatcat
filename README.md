@@ -14,7 +14,7 @@ A rough and ready README
 
 One by one, `meteor add XXX` where XXX is each of these:
 
-`
+
 accounts-base                       
 
 accounts-password                   
@@ -82,4 +82,4 @@ themeteorchef:bert
 themeteorchef:jquery-validation     
 
 tracker                             
-`                             
+                             
