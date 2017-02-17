@@ -1,0 +1,19 @@
+$font-family-sans-serif:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+// $body-bg: hotpink;
+/* Globals */
+@import '{reywood:bootstrap3-sass}/bootstrap';
+
+@import "globals/extends";
+
+/* Views */
+@import "views/public/login";
+@import "views/public/admin";
+/*
+ * Base structure
+ */
+

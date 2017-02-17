@@ -1,0 +1,58 @@
+<template name="workplaces">
+  <div class="container-fluid">
+    <div class="row">
+    {{> navbar}}  
+    <div class="col-sm-9 col-md-10 main">
+
+  <h1>Workplaces <button class="btn btn-default" id="addDepartment">Add Department</button></h1>
+  {{> tabular table=TabularTables.Places class="table table-striped table-bordered table-condensed table-hover"}}
+
+</div>
+</div>
+</div>
+
+ 
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="DeptModalLabel" id="addingDepartment" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Department</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addDepartmentForm">
+        <div class="form-group">
+        <label for="DeptTrustList">Trust</label>
+        <select class="form-control" id="DeptTrustList">
+            {{#each trusts}} 
+            <option>{{this.Trust}}</option>
+            {{/each}}
+        </select>
+        </div>
+        <div class="form-group">
+        <label for="HospitalList">Hospital</label>
+        <select class="form-control" id="HospitalList">
+            {{#each hospitals}} 
+            <option>{{this.Hospital}}</option>
+            {{/each}}
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="newDepartmentName">Department name</label>
+          <input class="form-control" id="newDepartmentName" placeholder="Department">
+        </div>
+<!--         <button type="submit" class="btn btn-primary">Submit</button> -->
+      </form>
+
+      </div>
+      <div class="modal-footer">
+      <div style="display:none;" id="DepartmentWorking"><button type="button" class="btn btn-default" disabled="disabled">Saving...</button><span>{{> spinner}}</span></div>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="SubmitAddDepartment">Save</button>
+      </div>
+      </div>
+      </div>
+  </div>
+ 
+</template>

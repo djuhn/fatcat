@@ -1,0 +1,61 @@
+
+
+
+<template name="index">
+  
+<div class="container-fluid">
+      
+      <div class="row row-offcanvas row-offcanvas-left">
+        
+         
+      {{> navbar}}
+      <div class="col-sm-9 col-md-10 main">
+      <img src="FATCAT_longlogo.png" width="600px">
+      </div>
+      <div class="col-sm-9 col-md-10 main">
+        <h1 class="page-header">Dashboard</h1>
+        {{#if CT}}
+        You're College Tutor/Feedback administrator for: {{Hospital}}<br><br>
+        {{/if}}
+        {{#if SysAdmin}}
+        You're a system administrator (please don't break things!)<br><br>
+        {{/if}}
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <i class="fa fa-hospital-o fa-5x"></i>
+            <h4>Hospitals</h4>
+            <span class="text-muted" style="font-size: 3em">{{HowManyHospitals}}</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+          <i class="fa fa-user-md fa-5x"></i>
+          <h4>Trainers</h4>
+          <span class="text-muted" style="font-size: 3em">{{HowManyConsultants}}</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+          <i class="fa fa-commenting-o fa-5x"></i>
+          <h4>Feedback</h4>
+          <span class="text-muted" style="font-size: 3em">0</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+          <i class="fa fa-user fa-5x"></i>
+          <h4>System users</h4>
+          <span class="text-muted" style="font-size: 3em">{{SystemUsers}}</span>
+          </div>
+        </div>
+
+        <h2 class="sub-header">Notifications</h2>
+        
+        <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <h3>Important</h3>
+            <p>System being built - likely to break lots!</p>
+            <h3>Support</h3>
+            <p>Please email jp.lomas@gmail.com or call 07786 255227</p>
+        </div>
+        </div>
+<div class="col-sm-9 col-md-10 main">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  
+</template>

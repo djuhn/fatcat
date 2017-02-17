@@ -1,0 +1,24 @@
+<template name="changepw">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h3 class="page-header">Change Password</h3>
+      <form action="/change" id="changePasswordForm" method="post">
+      <div class="form-group">
+      <label for="oldPW">Old Password</label>
+          <input id="oldPW" type="password" class="form-control" name="oldPW" placeholder="Old Password">
+          </div>
+          <div class="form-group">
+          <label for="newPW">New Password</label>
+            <input id="newPW" type="password" class="form-control" name="email" placeholder="New Password">
+            </div>
+            <div class="form-group">
+            <label for="confirmPW">Confirm New Password</label>
+              <input id="confirmPW" type="password" class="form-control" name="email" placeholder="Confirm New Password">
+              </div>
+            <input class="btn btn-primary btn-submit" type="submit" value="Go">
+          </form>
+    </div> <!-- end .col-xs-12 -->
+  </div> <!-- end .row -->
+  </div>
+</template>

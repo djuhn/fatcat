@@ -1,0 +1,76 @@
+<template name="hospitals">
+  <div class="container-fluid">
+    <div class="row">
+    {{> navbar}}  
+    <div class="col-sm-9 col-md-10 main">
+<h1>Trusts <button class="btn btn-default" id="addTrust">Add Trust</button></h1>
+{{> tabular table=TabularTables.Trusts class="table table-striped table-bordered table-condensed table-hover"}}
+
+<h1>Hospitals <button class="btn btn-default" id="addHospital">Add Hospital</button></h1>
+{{> tabular table=TabularTables.Hospitals class="table table-striped table-bordered table-condensed table-hover"}}
+
+ 
+</div>
+</div>
+</div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="TrustModalLabel" id="addingTrust" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Trust</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addTrustForm">
+        <div class="form-group">
+          <label for="newTrustName">Trust name</label>
+          <input class="form-control" id="newTrustName" placeholder="Trust">
+        </div>
+<!--         <button type="submit" class="btn btn-primary">Submit</button> -->
+      </form>
+      </div>
+      <div class="modal-footer">
+        <div style="display:none;" id="TrustWorking"><button type="button" class="btn btn-default" disabled="disabled">Saving...</button><span>{{> spinner}}</span></div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="SubmitAddTrust">Save</button>
+      </div>
+      </div>
+      </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="HospitalModalLabel" id="addingHospital" style="display: none;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add Hospital</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addHospitalForm">
+        <div class="form-group">
+        <label for="TrustList">Trust</label>
+        <select class="form-control" id="TrustList">
+            {{#each trusts}} 
+            <option>{{this.Trust}}</option>
+            {{/each}}
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="newHospitalName">Hospital name</label>
+          <input class="form-control" id="newHospitalName" placeholder="Hospital">
+        </div>
+<!--         <button type="submit" class="btn btn-primary">Submit</button> -->
+      </form>
+
+      </div>
+      <div class="modal-footer">
+      <div style="display:none;" id="HospitalWorking"><button type="button" class="btn btn-default" disabled="disabled">Saving...</button><span>{{> spinner}}</span></div>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="SubmitAddHospital">Save</button>
+      </div>
+      </div>
+      </div>
+  </div>
+  
+ 
+</template>

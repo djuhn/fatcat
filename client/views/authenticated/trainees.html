@@ -1,0 +1,71 @@
+<template name="trainees">
+  <div class="container-fluid">
+    <div class="row">
+    {{> navbar}}  
+    <div class="col-sm-9 col-md-10 main">
+<h1>Trainees <button class="btn btn-default" id="addTrainee">Add Trainee(s)</button></h1>
+{{> tabular table=TabularTables.Trainees class="table table-striped table-bordered table-condensed table-hover"}}
+</div>
+</div>
+</div>
+
+
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="DeptModalLabel" id="addingTrainee" style="display: none;">
+ <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Add Trainee(s)</h4>
+          </div>
+          <div class="modal-body">
+              <form id="addTraineeForm">
+      <div class="form-group">
+      <label for="DeptTrustList">Trust</label>
+      <select class="form-control" id="TraineeDeptTrustList">
+          {{#each trusts}} 
+          <option>{{this.Trust}}</option>
+          {{/each}}
+      </select>
+      </div>
+      <div class="form-group">
+      <label for="HospitalList">Hospital</label>
+      <select class="form-control" id="HospitalList">
+          {{#each hospitals}} 
+          <option>{{this.Hospital}}</option>
+          {{/each}}
+      </select>
+      </div>
+      <div class="form-group">
+      <label for="DepartmentList">Department/s</label>
+      <select class="form-control" style="width: 100%" id="DepartmentList" multiple="multiple">
+          {{#each departments}} 
+          <!-- <option>{{this.Department}}</option> -->
+          <option value="{{this._id}}">{{this.Department}}</option>
+          {{/each}}
+      </select>
+      </div>
+	  <!--       <div class="form-group">
+        <label for="newTraineeName">Trainee surname</label>
+        <input class="form-control" id="newTraineeName" placeholder="Surname">
+      </div>
+      <div class="form-group">
+        <label for="newTraineeFirstName">Trainee forename</label>
+        <input class="form-control" id="newTraineeFirstName" placeholder="Forename">
+      </div> -->
+      <div class="form-group">
+        <label for="newTraineeEmail">Trainee email</label>
+        <input class="form-control" id="newTraineeEmail" placeholder="email@nhs.net">
+      </div>
+    </form>
+
+    </div>
+    <div class="modal-footer">
+    <div style="display:none;" id="TraineeWorking"><button type="button" class="btn btn-default" disabled="disabled">Saving...</button><span>{{> spinner}}</span></div>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="SubmitAddTrainee">Save</button>
+    </div>
+    </div>
+    </div>
+  </div>
+
+</template>
