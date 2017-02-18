@@ -47,7 +47,7 @@ TabularTables.Trainees = new Tabular.Table({
         {data: "workplacestring", title: "Workplaces"},
         {data: "Asked", title: "Asked",
         render: function (val, type, doc) {
-                if (val === false) {
+                if (val === true) {
                   return "Yes";
                 } else {
                   return "No";
@@ -56,7 +56,7 @@ TabularTables.Trainees = new Tabular.Table({
         },
         {data: "Reminded", title: "Reminded",
         render: function (val, type, doc) {
-                if (val === false) {
+                if (val === true) {
                   return "Yes";
                 } else {
                   return "No";
@@ -65,7 +65,7 @@ TabularTables.Trainees = new Tabular.Table({
         },
         {data: "Responded", title: "Responded",
         render: function (val, type, doc) {
-                if (val === false) {
+                if (val === true) {
                   return "Yes";
                 } else {
                   return "No";
