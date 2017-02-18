@@ -102,6 +102,7 @@ Template.trainees.events({
         var y = $('#TraineeDeptTrustList').val();
         var x = 'Trust name changed: need to grab Hospitals in ' + y;
         console.log(x);
+        $('#DepartmentList').select2('val','');
         Meteor.call('getHospitals', Meteor.userId(), y, function(error, result) {
             Session.set('activeHospitals', result);
         });
@@ -115,6 +116,7 @@ Template.trainees.events({
         var v = $('#TraineeDeptTrustList').val();
         var x = 'Hospital name changed: need to grab Departments in ' + v + ' trust working in ' + y + ' hospital';
         console.log(x);
+        $('#DepartmentList').select2('val','');
         Meteor.call('getDepartments', Meteor.userId(), v, y, function(error, result) {
             Session.set('activeDepartments', result);
         });
@@ -165,10 +167,10 @@ Template.users.events({
         var y = $('#ConsultantDeptTrustList').val();
         var x = 'Trust name changed: need to grab Hospitals in ' + y;
         console.log(x);
+        $('#DepartmentList').select2('val','');
         Meteor.call('getHospitals', Meteor.userId(), y, function(error, result) {
             Session.set('activeHospitals', result);
         });
-
         Meteor.call('getDepartments', Meteor.userId(), y, '', function(error, result) {
             Session.set('activeDepartments', result);
         });
@@ -178,6 +180,7 @@ Template.users.events({
         var v = $('#ConsultantDeptTrustList').val();
         var x = 'Hospital name changed: need to grab Departments in ' + v + ' trust working in ' + y + ' hospital';
         console.log(x);
+        $('#DepartmentList').select2('val','');
         Meteor.call('getDepartments', Meteor.userId(), v, y, function(error, result) {
             Session.set('activeDepartments', result);
         });
@@ -207,7 +210,7 @@ Template.users.events({
                 Bert.alert(error, 'danger');
             }
         });
-    },
+    }
 });
 
 Template.navbar.helpers({
@@ -343,53 +346,8 @@ Template.hospitals.events({
             }
         });
     },
-    'submit': function(e) {
-        e.preventDefault();
-        // console.log('Submitted form... probably need to account for ENTER being pressed.');
-        if ($('#addingTrust').hasClass('in')) {
-            // console.log('Enter pressed on Adding Trust');
-            // pasted from above
-            $('.modal-footer > .btn').hide();
-            $('#TrustWorking').show();
-            var y = $('#newTrustName').val();
-            Meteor.call('addtrust', Meteor.userId(), y, function(error, result) {
-                $('.modal-footer > .btn').show();
-                $('#TrustWorking').hide();
-                if (!error) {
-                    $("#addingTrust").modal('hide');
-
-                    $('#newTrustName').val('');
-                    Bert.alert('Trust added', 'success');
-                    Meteor.call('getTrusts', Meteor.userId(), function(error, result) {
-                        Session.set('activeTrusts', result);
-                    });
-                } else {
-                    Bert.alert(error, 'danger');
-                }
-            });
-        }
-        if ($('#addingHospital').hasClass('in')) {
-            console.log('Enter pressed on Adding Hospital');
-            // pasted from above
-            $('.modal-footer > .btn').hide();
-            $('#HospitalWorking').show();
-            var y = $('#newHospitalName').val();
-            var v = $('#TrustList').val();
-            Meteor.call('addhospital', Meteor.userId(), v, y, function(error, result) {
-                $("#addingHospital").modal('hide');
-                $('.modal-footer > .btn').show();
-                $('#HospitalWorking').hide();
-                $('#newHospitalName').val('');
-                if (!error) {
-                    Bert.alert('Hospital added', 'success');
-                } else {
-                    Bert.alert(error, 'danger');
-                }
-                Meteor.call('getHospitals', Meteor.userId(), function(error, result) {
-                    Session.set('activeHospitals', result);
-                });
-            });
-        }
+    'submit': function(e){
+      event.preventDefault();
     }
 });
 
@@ -440,29 +398,8 @@ Template.workplaces.events({
             }
         });
     },
-    'submit': function(e) {
-        e.preventDefault();
-        // console.log('Submitted form... probably need to account for ENTER being pressed.');
-        if ($('#addingDepartment').hasClass('in')) {
-            console.log('Enter pressed on Adding Department');
-            // pasted from above
-            $('.modal-footer > .btn').hide();
-            $('#DepartmentWorking').show();
-            var y = $('#newDepartmentName').val();
-            var v = $('#DeptTrustList').val();
-            var c = $('#HospitalList').val();
-            Meteor.call('addplace', Meteor.userId(), v, c, y, function(error, result) {
-                $("#addingDepartment").modal('hide');
-                $('.modal-footer > .btn').show();
-                $('#DepartmentWorking').hide();
-                $('#newDepartmentName').val('');
-                if (!error) {
-                    Bert.alert('Department added', 'success');
-                } else {
-                    Bert.alert(error, 'danger');
-                }
-            });
-        }
+    'submit': function(e){
+      event.preventDefault();
     }
 });
 
@@ -484,6 +421,18 @@ Meteor.call('availableLevels', function(error, result) {
 });
 
 Template.workplaces.helpers({
+    'trusts': function() {
+        x = Session.get('activeTrusts');
+        // console.log(x);
+        return x
+    },
+    'hospitals': function() {
+        x = Session.get('activeHospitals');
+        // console.log(x);
+        return x
+    }
+});
+Template.hospitals.helpers({
     'trusts': function() {
         x = Session.get('activeTrusts');
         // console.log(x);
