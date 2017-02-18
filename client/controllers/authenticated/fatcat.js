@@ -1,6 +1,7 @@
 
 
 Session.set('li', 'ov');
+Session.set('amIsysadmin', false);
 
 Template.index.helpers({
     'CT': function() {
@@ -210,6 +211,17 @@ Template.users.events({
 });
 
 Template.navbar.helpers({
+    'amIsysadmin': function(e){
+        Meteor.call('SysAdmin', Meteor.userId(), function(exception, result) {
+            if (exception) {
+                Session.set('amIsysadmin', false);
+            } else {
+                // no error
+                Session.set('amIsysadmin', result);
+            }
+        });
+        return Session.get('amIsysadmin');
+    },
     'highlightov': function(e) {
         var x = Session.get('li');
         if (x == 'ov') {
