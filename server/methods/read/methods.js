@@ -100,7 +100,7 @@ Meteor.methods({
         return exampleItem;
     },
     availableLevels: function() {
-        // calling user...
+        // calling user... [This has been superceded architecturally by Roles]
         //console.log(Meteor.user());
     },
     readPlace: function(e) {

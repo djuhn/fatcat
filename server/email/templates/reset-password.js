@@ -4,8 +4,8 @@
 */
 
 // Set name and from email.
-Accounts.emailTemplates.resetPassword.siteName = "Application Name";
-Accounts.emailTemplates.resetPassword.from     = "Application Admin Email <admin@application.com>";
+Accounts.emailTemplates.resetPassword.siteName = "FATCAT";
+Accounts.emailTemplates.resetPassword.from     = "JP Lomas <jp.lomas@gmail.com>";
 
 // Set a subject for the reset password email.
 Accounts.emailTemplates.resetPassword.subject = function(user){
@@ -16,5 +16,5 @@ Accounts.emailTemplates.resetPassword.subject = function(user){
 Accounts.emailTemplates.resetPassword.text = function(user, url){
   var email      = user.emails[0].address,
       removeHash = url.replace('#/', '');
-  return "A password reset has been requested for the account related to this address(" + email + "). To reset the password, visit the following link:\n\n" + removeHash + "\n\n If you did not request this reset, please ignore this email. If you feel something is wrong, please contact support: admin@application.com."  
+  return "A password reset has been requested for the account related to this address(" + email + "). To reset the password, visit the following link:\n\n" + removeHash + "\n\n If you did not request this reset, please ignore this email. If you feel something is wrong, please contact support: jp.lomas@gmail.com"  
 }

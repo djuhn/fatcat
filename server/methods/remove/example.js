@@ -2,7 +2,7 @@
 * Methods: Remove - Example
 * Example of a method used for removing a document from the database.
 */
-
+/*
 Meteor.methods({
   exampleRemoveMethod: function(argument){
     // Check the argument. Assuming a String type here.
@@ -18,3 +18,4 @@ Meteor.methods({
     }
   }
 });
+*/

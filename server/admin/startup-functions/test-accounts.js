@@ -7,9 +7,9 @@ generateTestAccounts = function(){
 
 
   var users = [
-        {name:"Normal User",email:"normal@example.com",roles:[]},
-        {name:"JP Lomas",email:"jp.lomas@gmail.com",roles:['sysadmin']},
-        {name:"Sophie Bishop",email:"test@test.com",roles:['CT']}
+        {name:"Normal User",email:"normal@test.test",roles:[]},
+        {name:"System Admin",email:"sysadmin@test.test",roles:['sysadmin']},
+        {name:"College Tutor",email:"ct@test.test",roles:['CT']}
       ];
 
   _.each(users, function (user) {

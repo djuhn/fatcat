@@ -1,14 +1,4 @@
-// Template.admin.events({
-//   'click #addConsultant': function(e) {
-//     var x = Meteor.call('addconsultant','Lomas', 'JP', 'jp.lomas@gmail.com', 10, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Thornton', 'Sarah', 'test@test.com', 9, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Perkins', 'Russell', 'test@test.com', 8, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Brocklehurst', 'Ian', 'test@test.com', 7, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Briggs', 'Geraint', 'test@test.com', 6, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Maguire', 'Simon', 'test@test.com', 6, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//     var x = Meteor.call('addconsultant','Clements', 'Paul', 'test@test.com', 5, ["vSdjoN3Mn3iiib9rz","vSdjoN3Mn3iiib9rz"]);
-//   }
-// });
+
 
 Session.set('li', 'ov');
 

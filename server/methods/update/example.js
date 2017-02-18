@@ -2,7 +2,7 @@
 * Methods: Update - Example
 * Example of a method used for updating a document in the database.
 */
-
+/*
 Meteor.methods({
   exampleUpdateMethod: function(argument){
     // Check the argument. Assuming an Object type here.
@@ -22,3 +22,4 @@ Meteor.methods({
     }
   }
 });
+*/
